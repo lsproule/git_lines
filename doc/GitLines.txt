@@ -1,0 +1,50 @@
+================================================================================
+INTRODUCTION                                                    *GitLines.nvim*
+
+GitLines is a Neovim plugin that opens the current file in the browser in GitHub
+or GitLab, and can highlight the current selected lines line.
+
+
+
+Gettings started with GitLines:
+
+
+Setup GitLines                                                            *Setup*
+
+local git_lines = require("git_lines").setup({opts})
+
+you can setup gitlines, and give it your default keymaps by default they will
+be the keymaps below, but you can customize them however you'd like
+<
+  git_lines.setup({
+      keymaps = {
+        { "n", "<leader>gl", vim.cmd.GitLink },
+        {
+          "v",
+          "gl",
+          function()
+            vim.cmd("GitLink true")
+          end,
+        },
+      }
+  })
+>
+git_link                                                            *git_link*
+
+This is the command that runs to get the git url and open it in the browser or
+put the url in your clipboard.
+
+git_lines.git_link({selection})
+<
+  -- will run and create the link for the file you are currently in 
+  gitlines.git_link()
+
+  -- if you have a visual selection you pass true
+  git_lines.git_link(true) 
+>
+
+
+vim:tw=78:ts=8:ft=help:norl:
+
+
+
