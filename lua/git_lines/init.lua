@@ -149,7 +149,7 @@ M.setup = function(opts)
         },
       }
   for _, keymap in ipairs(keymaps) do
-    vim.keymap.set(keymap[1], keymap[2], keymap[3], { noremap = true, silent = true })
+    vim.keymap.set(keymap[1], keymap[2], keymap[3], keymap[4])
   end
 end
 
